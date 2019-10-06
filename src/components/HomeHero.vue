@@ -1,10 +1,10 @@
 <template>
-    <v-container fluid fill-height class="home-hero">
-        <v-layout justify-center alignt-center column pa-5>
-            <div class="display-3 font-weight-black white--text mb-3">Teresa Vargas González</div>
-            <div class="display-2 font-weight-black white--text text-xs-center mb-5">Photographer</div>
-            <div class="display-1 font-weight-bold white--text text-xs-center">This is my professional portfolio</div>
-            <v-btn fab class="mt-5 amber darken-4">
+    <v-container fluid fill-height class="home-hero" :class="xsBackgroundImage">
+        <v-layout justify-center align-center column pa-5>
+            <div class="display-3 font-weight-black white--text text-center mb-3" :class="xsD2FontSize">Teresa Vargas González</div>
+            <div class="display-2 font-weight-black white--text text-center mb-6" :class="xsD1FontSize">Photographer</div>
+            <div class="display-1 font-weight-bold white--text text-center" :class="xsD1FontSize">This is my professional portfolio</div>
+            <v-btn fab class="mt-5 purple darken-4">
                 <v-icon large color="white">expand_more</v-icon>
             </v-btn>
         </v-layout>
@@ -15,24 +15,37 @@
 export default {
     name: 'HomeHero',
     computed: {
-        'font-size': function () {
+        xsD2FontSize: function () {
             return {
-                'mobile-font-size': this.$vuetify.breakpoint.name === 'xs',
-                'no-mobile-font-size': this.error && this.error.type === 'fatal'
-                }
+                'display-2': this.$vuetify.breakpoint.name === 'xs',
+                'mb-12': this.$vuetify.breakpoint.name === 'xs',
+                'mt-10': this.$vuetify.breakpoint.name === 'xs'
+            }
+        },
+        xsD1FontSize: function () {
+            return {
+                'display-1': this.$vuetify.breakpoint.name === 'xs'            
+            }
+        },
+        xsBackgroundImage: function () {
+            return {
+                'home-hero-xs': this.$vuetify.breakpoint.name === 'xs'            
             }
         }
+    }
 };
 </script>
 
 <style scoped>
     .home-hero {
-        background: url('http://localhost:8080/img/home-bg.b2dee779.jpg');
+        max-height: 100vh;
+        background: url('../assets/home-bg.jpg');
         background-size: cover;
-        width: 100%;
-        height: 100%;
     }
-    .font-size {
-        font-size: 34px;
+
+    .home-hero-xs {
+        max-height: 100vh;
+        background: url('../assets/home-bg-xs.jpg');
+        background-size: cover;
     }  
 </style>
