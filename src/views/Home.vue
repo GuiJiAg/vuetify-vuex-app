@@ -2,18 +2,25 @@
     <span>
         <home-hero></home-hero>
         <home-details></home-details>
+        <home-gallery-sections></home-gallery-sections>
     </span>
 </template>
 
 <script>
-import HomeHero from '@/components/HomeHero';
-import HomeDetails from '@/components/HomeDetails';
+import HomeHero from '@/components/home/HomeHero';
+import HomeDetails from '@/components/home/HomeDetails';
+import HomeGallerySections from '@/components/home/HomeGallerySections';
 
 export default {
     name: 'Home',
     components: {
         HomeHero,
-        HomeDetails
+        HomeDetails,
+        HomeGallerySections
     }
 };
 </script>
+
+<style scoped>
+    
+</style>

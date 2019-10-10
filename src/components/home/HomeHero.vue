@@ -39,13 +39,13 @@ export default {
 <style scoped>
     .home-hero {
         max-height: 100vh;
-        background: url('../assets/home-bg.jpg');
+        background: url('../../assets/home-bg.jpg');
         background-size: cover;
     }
 
     .home-hero-xs {
         max-height: 100vh;
-        background: url('../assets/home-bg-xs.jpg');
+        background: url('../../assets/home-bg-xs.jpg');
         background-size: cover;
     }  
 </style>
