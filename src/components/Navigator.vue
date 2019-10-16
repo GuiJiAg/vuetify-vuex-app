@@ -1,8 +1,7 @@
 <template>
     <span>
         <v-navigation-drawer
-          app 
-          bottom 
+          app
           v-model="drawer" 
           color="purple lighten-1" 
           dark 
@@ -11,9 +10,11 @@
             <v-list>
                 <template v-for="(item, index) in items">
                     <v-list-item :key="index">
-                        <v-list-item-content>
-                            {{ item.title }}
-                        </v-list-item-content>
+                        <router-link :to="item.path">
+                            <v-list-item-content>
+                                {{ item.title }}
+                            </v-list-item-content>
+                        </router-link>
                     </v-list-item>
                     <v-divider :key="`divider-${index}`"></v-divider>
                 </template>
@@ -22,11 +23,13 @@
         <v-app-bar color="purple darken-4" dark>
             <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
-            <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
-            <v-btn text class="hidden-sm-and-down margin-button">Gallery</v-btn>
+            <router-link to="/">
+                <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
+            </router-link>
+            <v-btn text to="/gallery" class="hidden-sm-and-down margin-button">Gallery</v-btn>
             <v-spacer class="hidden-sm-and-down"></v-spacer>
-            <v-btn text class="hidden-sm-and-down margin-button">Sign In</v-btn>
-            <v-btn color="purple lighten-3" class="hidden-sm-and-down margin-button black--text">Join</v-btn>
+            <v-btn text to="/sign-in" class="hidden-sm-and-down margin-button">Sign In</v-btn>
+            <v-btn to="/join" color="purple lighten-3" class="hidden-sm-and-down margin-button black--text">Join</v-btn>
         </v-app-bar>
     </span> 
 </template>
@@ -39,9 +42,9 @@ export default {
             appTitle: 'My Portfolio',
             drawer: false,
             items: [
-                { title: 'Gallery' },
-                { title: 'Sign In' },
-                { title: 'Join'}
+                { title: 'Gallery', path: '/gallery' },
+                { title: 'Sign In', path: '/sign-in' },
+                { title: 'Join', path: '/join'}
             ]
         };
     }
@@ -51,5 +54,10 @@ export default {
 <style scoped>
     .margin-button {
         margin: 10px;
+    }
+
+    .v-application a {
+        color: white;
+        text-decoration: none;
     }
 </style>

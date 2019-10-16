@@ -9,11 +9,6 @@
                 </v-layout>
             </v-container>
         </v-img>
-        <v-card-title primary-title>
-            <div>
-                <h3 class="headline mb-0">Check my Models section</h3>
-            </div>
-        </v-card-title>
     </v-card>
 </template>
 
